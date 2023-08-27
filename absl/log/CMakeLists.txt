@@ -671,22 +671,6 @@ absl_cc_library(
   PUBLIC
 )
 
-absl_cc_library(
-    NAME
-      log_internal_fnmatch
-    SRCS
-      "internal/fnmatch.cc"
-    HDRS
-      "internal/fnmatch.h"
-    COPTS
-      ${ABSL_DEFAULT_COPTS}
-    LINKOPTS
-      ${ABSL_DEFAULT_LINKOPTS}
-    DEPS
-      absl::config
-      absl::strings
-)
-
 # Test targets
 
 absl_cc_test(
@@ -705,7 +689,8 @@ absl_cc_test(
     absl::core_headers
     absl::log_internal_test_helpers
     absl::status
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -728,7 +713,8 @@ absl_cc_test(
     absl::log_internal_test_helpers
     absl::log_internal_test_matchers
     absl::scoped_mock_log
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -747,7 +733,8 @@ absl_cc_test(
     absl::core_headers
     absl::log_internal_test_helpers
     absl::status
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -786,7 +773,8 @@ absl_cc_test(
     absl::log_internal_test_helpers
     absl::log_internal_test_matchers
     absl::scoped_mock_log
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -810,7 +798,8 @@ absl_cc_test(
     absl::span
     absl::strings
     absl::time
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -835,7 +824,8 @@ absl_cc_test(
     absl::flags_reflection
     absl::scoped_mock_log
     absl::strings
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -855,7 +845,7 @@ absl_cc_test(
     absl::log_internal_test_helpers
     absl::log_severity
     absl::scoped_mock_log
-    GTest::gmock_main
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -875,7 +865,8 @@ absl_cc_test(
     absl::scoped_mock_log
     absl::str_format
     absl::strings
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -892,7 +883,8 @@ absl_cc_test(
     absl::log
     absl::log_severity
     absl::scoped_mock_log
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -915,7 +907,7 @@ absl_cc_test(
     absl::log_severity
     absl::scoped_mock_log
     absl::strings
-    GTest::gmock_main
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -938,7 +930,7 @@ absl_cc_test(
     absl::log_severity
     absl::scoped_mock_log
     absl::strings
-    GTest::gmock_main
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -959,7 +951,8 @@ absl_cc_test(
     absl::scoped_mock_log
     absl::strings
     absl::time
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -1002,7 +995,8 @@ absl_cc_test(
     absl::log_globals
     absl::log_internal_test_helpers
     absl::log_severity
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -1023,7 +1017,8 @@ absl_cc_test(
     absl::strerror
     absl::strings
     absl::str_format
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )
 
 absl_cc_test(
@@ -1042,19 +1037,6 @@ absl_cc_test(
     absl::log_internal_test_matchers
     absl::log_structured
     absl::scoped_mock_log
-    GTest::gmock_main
-)
-
-absl_cc_test(
-  NAME
-    internal_fnmatch_test
-  SRCS
-    "internal/fnmatch_test.cc"
-  COPTS
-    ${ABSL_TEST_COPTS}
-  LINKOPTS
-    ${ABSL_DEFAULT_LINKOPTS}
-  DEPS
-    absl::log_internal_fnmatch
-    GTest::gmock_main
+    GTest::gmock
+    GTest::gtest_main
 )

@@ -438,7 +438,7 @@ pid_t GetTID() {
   auto* thread = pthread_self();
   static_assert(sizeof(pid_t) == sizeof(thread),
                 "In NaCL int expected to be the same size as a pointer");
-  return reinterpret_cast<pid_t>(thread);
+  return static_cast<pid_t>((intptr_t)pthread_self());
 }
 
 #else
@@ -447,7 +447,7 @@ pid_t GetTID() {
 pid_t GetTID() {
   // `pthread_t` need not be arithmetic per POSIX; platforms where it isn't
   // should be handled above.
-  return static_cast<pid_t>((intptr_t)pthread_self());
+  return static_cast<pid_t>(pthread_self());
 }
 
 #endif

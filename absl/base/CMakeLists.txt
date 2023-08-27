@@ -49,7 +49,6 @@ absl_cc_library(
   SRCS
     "log_severity.cc"
   DEPS
-    absl::config
     absl::core_headers
   COPTS
     ${ABSL_DEFAULT_COPTS}
